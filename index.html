@@ -86,6 +86,15 @@ ol.pasos span { color: var(--tinta-2); font-size: 15px; }
 .aviso b { color: var(--tinta); }
 footer { padding: 36px 0 48px; border-top: 1px solid var(--borde); color: var(--tinta-3); font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 footer img { height: 28px; width: auto; }
+.brilla { position: relative; display: inline-block; line-height: 0; }
+.brilla img { filter: drop-shadow(0 0 8px rgb(242 165 22 / .45)) saturate(1.15) brightness(1.08); }
+.brilla::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgb(255 255 255 / .95) 48%, rgb(255 236 180 / .9) 52%, transparent 62%);
+  background-size: 300% 100%; background-position: 140% 0; mix-blend-mode: screen;
+  -webkit-mask: url("img/zafiroweb.png") left center / contain no-repeat; mask: url("img/zafiroweb.png") left center / contain no-repeat;
+  animation: reflejo 5s ease-in-out 2.4s infinite; }
+@keyframes reflejo { 0% { background-position: 140% 0; } 45%, 100% { background-position: -40% 0; } }
+@media (prefers-reduced-motion: reduce) { .brilla::after { display: none; } }
 #intro { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
   background: radial-gradient(circle at 50% 46%, rgb(60 42 12 / .55) 0%, rgb(42 30 11 / .28) 22%, rgb(20 14 6 / .1) 40%, rgb(5 7 13 / 0) 62%), #05070d; transition: opacity .5s ease; }
 #intro img { width: min(72vw, 340px); height: auto; opacity: 0; transform: scale(.9); animation: aparece 1s .15s cubic-bezier(.2,.8,.2,1) forwards; }
@@ -105,7 +114,7 @@ footer img { height: 28px; width: auto; }
 <div class="caja">
   <header>
     <a class="marca" href="#"><img src="img/icono-512.png" alt="">Asistente Laboral</a>
-    <a href="https://zafiroweb.com" target="_blank" rel="noopener"><img class="zw" src="img/zafiroweb.png" alt="ZafiroWeb"></a>
+    <a class="brilla" href="https://zafiroweb.com" target="_blank" rel="noopener"><img class="zw" src="img/zafiroweb.png" alt="ZafiroWeb"></a>
   </header>
 
   <div class="hero">
@@ -185,7 +194,7 @@ footer img { height: 28px; width: auto; }
 <div class="caja">
   <footer>
     <span>Asistente Laboral · hecho por ZafiroWeb · <a href="https://github.com/franyttt-art/asistente-laboral/releases" target="_blank" rel="noopener">versiones</a></span>
-    <a href="https://zafiroweb.com" target="_blank" rel="noopener"><img src="img/zafiroweb.png" alt="ZafiroWeb"></a>
+    <a class="brilla" href="https://zafiroweb.com" target="_blank" rel="noopener"><img src="img/zafiroweb.png" alt="ZafiroWeb"></a>
   </footer>
 </div>
 <script>
